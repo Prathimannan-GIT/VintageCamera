@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="vintage-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#5A3E2B;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#B08D57;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="1200" height="600" fill="url(#vintage-gradient)"/>
+    <text x="600" y="280" font-family="Georgia, serif" font-size="48" fill="white" text-anchor="middle">
+        VINTAGE CAMERA STORE
+    </text>
+    <text x="600" y="330" font-family="Georgia, serif" font-size="24" fill="white" text-anchor="middle">
+        Hero Image Placeholder
+    </text>
+    <circle cx="600" cy="400" r="80" fill="none" stroke="white" stroke-width="3"/>
+    <circle cx="600" cy="400" r="60" fill="none" stroke="white" stroke-width="2"/>
+    <circle cx="600" cy="400" r="40" fill="none" stroke="white" stroke-width="1"/>
+</svg>

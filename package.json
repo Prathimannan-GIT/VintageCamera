@@ -1,0 +1,33 @@
+{
+  "name": "vintage-camera-store",
+  "version": "1.0.0",
+  "description": "A premium e-commerce website for vintage cameras and photography equipment",
+  "main": "index.html",
+  "scripts": {
+    "start": "node -e \"require('http').createServer(require('fs').readFileSync('index.html')).listen(3000)\"",
+    "dev": "python -m http.server 3000",
+    "placeholders": "node create-placeholders.js"
+  },
+  "keywords": [
+    "vintage",
+    "camera",
+    "photography",
+    "ecommerce",
+    "responsive",
+    "html5",
+    "css3",
+    "javascript"
+  ],
+  "author": "Vintage Camera Store",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/vintage-camera-store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/vintage-camera-store/issues"
+  },
+  "homepage": "https://github.com/your-username/vintage-camera-store#readme"
+}
