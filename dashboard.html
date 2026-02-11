@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Vintage Camera Store</title>
+    <title>Dashboard - VintCam</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
     <div class="dashboard">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a href="index.html" class="logo" style="color: white; margin-bottom: 2rem; display: block; text-align: center;">
-                    <svg class="logo-icon" viewBox="0 0 24 24" style="fill: white; margin-right: 10px;">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    Vintage Camera Store
+                <a href="index.html" class="logo"
+                    style="color: white; margin-bottom: 2rem; display: block; text-align: center;">
+                    <img src="assets/images/camera-1.svg" alt="VintCam Logo" class="logo-icon"
+                        style="filter: brightness(0) invert(1); margin-right: 10px;">
+                    VintCam
                 </a>
             </div>
-            
+
             <nav>
                 <ul class="sidebar-menu">
                     <li><a href="#overview" class="active">Overview</a></li>
@@ -30,7 +32,7 @@
                     <li><a href="index.html">Logout</a></li>
                 </ul>
             </nav>
-            
+
             <div class="dashboard-hamburger">
                 <span></span>
                 <span></span>
@@ -44,7 +46,7 @@
             <section id="overview" class="dashboard-section">
                 <h1>Dashboard Overview</h1>
                 <p>Welcome back! Here's a summary of your vintage camera collection and activity.</p>
-                
+
                 <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Total Orders</h3>
@@ -67,7 +69,7 @@
                         <p>In progress</p>
                     </div>
                 </div>
-                
+
                 <div class="recent-activity">
                     <h2>Recent Activity</h2>
                     <div class="activity-list">
@@ -103,7 +105,7 @@
             <section id="orders" class="dashboard-section" style="display: none;">
                 <h1>My Orders</h1>
                 <p>Track and manage your vintage camera purchases.</p>
-                
+
                 <div class="orders-list">
                     <div class="order-card">
                         <div class="order-header">
@@ -124,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="order-card">
                         <div class="order-header">
                             <h3>Order #12344</h3>
@@ -151,7 +153,7 @@
             <section id="saved" class="dashboard-section" style="display: none;">
                 <h1>Saved Gear</h1>
                 <p>Your wishlist of vintage cameras and lenses.</p>
-                
+
                 <div class="saved-grid">
                     <div class="saved-item">
                         <img src="assets/images/nikon-fm2.jpg" alt="Nikon FM2" class="saved-image">
@@ -165,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="saved-item">
                         <img src="assets/images/zeiss-50mm.jpg" alt="Zeiss 50mm" class="saved-image">
                         <div class="saved-content">
@@ -185,7 +187,7 @@
             <section id="repairs" class="dashboard-section" style="display: none;">
                 <h1>Repair Services</h1>
                 <p>Track your camera repair and restoration services.</p>
-                
+
                 <div class="repairs-list">
                     <div class="repair-card">
                         <div class="repair-header">
@@ -200,7 +202,7 @@
                             <button class="btn btn-primary">View Report</button>
                         </div>
                     </div>
-                    
+
                     <div class="repair-card">
                         <div class="repair-header">
                             <h3>Repair #R002</h3>
@@ -221,7 +223,7 @@
             <section id="analytics" class="dashboard-section" style="display: none;">
                 <h1>Collection Analytics</h1>
                 <p>Insights into your vintage camera collection.</p>
-                
+
                 <div class="analytics-grid">
                     <div class="analytics-card">
                         <h3>Collection by Era</h3>
@@ -232,7 +234,7 @@
                             <p>1980s: 3 cameras</p>
                         </div>
                     </div>
-                    
+
                     <div class="analytics-card">
                         <h3>Collection by Brand</h3>
                         <div class="chart-placeholder">
@@ -242,7 +244,7 @@
                             <p>Others: 3 items</p>
                         </div>
                     </div>
-                    
+
                     <div class="analytics-card">
                         <h3>Investment Growth</h3>
                         <div class="chart-placeholder">
@@ -258,7 +260,7 @@
             <section id="settings" class="dashboard-section" style="display: none;">
                 <h1>Account Settings</h1>
                 <p>Manage your account preferences and information.</p>
-                
+
                 <div class="settings-form">
                     <h2>Personal Information</h2>
                     <form>
@@ -280,7 +282,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
-                    
+
                     <h2>Notification Preferences</h2>
                     <form>
                         <div class="form-options">
@@ -307,28 +309,28 @@
     <script src="assets/js/script.js"></script>
     <script>
         // Dashboard navigation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
             const sections = document.querySelectorAll('.dashboard-section');
-            
+
             sidebarLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     // Remove active class from all links and sections
                     sidebarLinks.forEach(l => l.classList.remove('active'));
                     sections.forEach(s => s.style.display = 'none');
-                    
+
                     // Add active class to clicked link
                     this.classList.add('active');
-                    
+
                     // Show corresponding section
                     const targetId = this.getAttribute('href').substring(1);
                     const targetSection = document.getElementById(targetId);
                     if (targetSection) {
                         targetSection.style.display = 'block';
                     }
-                    
+
                     // Close mobile sidebar
                     document.querySelector('.sidebar').classList.remove('active');
                 });
@@ -336,4 +338,5 @@
         });
     </script>
 </body>
+
 </html>
