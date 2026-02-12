@@ -4,11 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation Toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const headerContent = document.querySelector('.header-content');
     
-    if (hamburger && navMenu) {
+    if (hamburger && navMenu && headerContent) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            headerContent.classList.toggle('menu-active');
         });
     }
     
