@@ -423,7 +423,8 @@ p {
 
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+    position: relative;
     color: var(--primary-color);
 }
 
@@ -1364,12 +1365,14 @@ p {
         height: calc(100vh - 70px);
         background-color: var(--card-background);
         flex-direction: column;
-        padding: 2rem;
-        transition: left 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        gap: 1rem;
+        padding: 3rem 1.5rem;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        gap: 0.5rem;
         overflow-y: auto;
         z-index: 1000;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .nav-menu.active {
@@ -1377,18 +1380,42 @@ p {
         left: 0;
     }
 
-    .nav-menu a {
-        padding: 1rem;
-        font-size: 1.1rem;
-        border-radius: 10px;
+    .nav-menu li {
+        width: 100%;
         text-align: center;
+    }
+
+    .nav-menu a {
+        padding: 0.8rem 1.5rem;
+        font-size: 1.2rem;
+        border-radius: 25px;
+        text-align: center;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
     }
 
     .nav-auth {
         display: block;
-        margin-top: 1rem;
-        padding-top: 1rem;
+        width: 100%;
+        max-width: 220px;
+        text-align: center;
+        margin-top: 0.8rem;
+    }
+
+    /* Start of Auth section in mobile menu */
+    .nav-menu li:not(.nav-auth)+.nav-auth {
+        margin-top: 2.5rem;
+        padding-top: 2rem;
         border-top: 1px solid var(--border-color);
+    }
+
+    .nav-auth .btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 25px;
+        display: block;
     }
 
     .header-actions {
@@ -1469,16 +1496,26 @@ p {
 
     .workshop-showcase {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .workshop-features {
+        text-align: left;
+        max-width: 500px;
+        margin: 1.5rem auto;
     }
 
     .community-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+        text-align: center;
     }
 
     .community-stats {
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 1.5rem;
     }
 
     .gallery-grid {
@@ -1720,21 +1757,40 @@ p {
 }
 
 /* Workshop Showcase */
+/* Workshop Showcase */
 .workshop-showcase {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.workshop-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
 }
 
 .workshop-image img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+.workshop-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 .workshop-features {
     list-style: none;
-    margin: 1rem 0;
+    margin: 1.5rem auto;
+    display: inline-block;
+    text-align: left;
 }
 
 .workshop-features li {
@@ -1753,25 +1809,46 @@ p {
 
 /* Community Content */
 .community-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.community-image {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
 }
 
 .community-image img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
+
+.community-text {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 
 .community-stats {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
+    width: 100%;
 }
 
 .stat-item {
     text-align: center;
+    flex: 1;
+    min-width: 150px;
 }
 
 .stat-item h4 {
@@ -2113,28 +2190,45 @@ p {
 .auth-page {
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    padding: 2rem;
+    padding: 2rem 1rem;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.auth-page::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
+}
+
+@media (min-height: 800px) {
+    .auth-page {
+        justify-content: center;
+    }
 }
 
 .auth-page::before {
     content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     animation: float 20s ease-in-out infinite;
     z-index: 1;
 }
 
 .auth-card {
-    background-color: white;
+    background-color: var(--card-background);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -2144,6 +2238,17 @@ p {
     position: relative;
     z-index: 2;
     animation: slideInUp 0.6s ease-out;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .auth-card h2 {
+        font-size: 1.75rem;
+    }
 }
 
 .auth-logo {
@@ -2203,13 +2308,14 @@ p {
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
     transition: all 0.3s;
-    background-color: var(--background-color);
+    background-color: white;
+    color: var(--text-primary);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--text-secondary);
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .form-group input:focus,
@@ -2218,33 +2324,53 @@ p {
     outline: none;
     border-color: var(--primary-color);
     background-color: white;
-    box-shadow: 0 0 0 3px rgba(90, 62, 43, 0.1);
+    box-shadow: 0 0 0 4px rgba(90, 62, 43, 0.1);
+    transform: translateY(-1px);
 }
 
 .form-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-size: 0.9rem;
+}
+
+.registration-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
 }
 
 .checkbox-label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 0.8rem;
     cursor: pointer;
     color: var(--text-primary);
+    text-align: left;
+    margin-bottom: 0.5rem;
 }
 
 .checkbox-label input[type="checkbox"] {
-    margin-right: 0.5rem;
-    width: auto;
+    margin-top: 0.3rem;
+    width: 18px;
+    height: 18px;
     cursor: pointer;
     accent-color: var(--primary-color);
+    flex-shrink: 0;
 }
 
 .checkbox-label span {
-    line-height: 1.5;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.auth-submit {
+    width: 100%;
+    padding: 14px !important;
+    font-size: 1rem !important;
+    margin-top: 0.5rem;
 }
 
 .forgot-password {
@@ -2267,7 +2393,7 @@ p {
 
 .social-login p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-size: 0.95rem;
 }
 
@@ -2763,6 +2889,11 @@ p {
     }
 }
 
+/* Accent Background */
+.bg-accent {
+    background-color: #F0E6DC;
+}
+
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -2784,14 +2915,39 @@ p {
     .form-group input,
     .form-group select,
     .form-group textarea {
-        background-color: #2d2d2d;
+        background-color: #1a1a1a;
         border-color: #404040;
         color: white;
+    }
+
+    .form-group input:focus {
+        background-color: #252525;
     }
 
     .social-btn {
         background-color: #2d2d2d;
         border-color: #404040;
         color: white;
+    }
+
+    .bg-accent {
+        background-color: #252525 !important;
+    }
+
+    /* Visibility fixes for links on dark cards */
+    .forgot-password,
+    .auth-footer a,
+    .checkbox-label a,
+    .auth-card p a {
+        color: var(--secondary-color) !important;
+        font-weight: 600;
+    }
+
+    .forgot-password:hover,
+    .auth-footer a:hover,
+    .checkbox-label a:hover,
+    .auth-card p a:hover {
+        color: #d4b483 !important;
+        text-decoration: underline;
     }
 }
