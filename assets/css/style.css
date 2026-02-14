@@ -201,10 +201,24 @@ p {
 
 .header-actions {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
     flex-shrink: 0;
     margin-left: auto;
+}
+
+.header-actions .btn {
+    padding: 4px 10px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    min-width: 60px;
+    text-align: center;
 }
 
 .btn {
@@ -238,22 +252,30 @@ p {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--secondary-color);
     color: white;
-    box-shadow: 0 4px 15px rgba(90, 62, 43, 0.3);
+    box-shadow: 0 4px 15px rgba(176, 141, 87, 0.3);
+    border: 2px solid transparent;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(90, 62, 43, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(176, 141, 87, 0.5);
+    background: #9A7A47;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 15px rgba(176, 141, 87, 0.4);
 }
 
 .btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background: var(--secondary-color);
+    color: white;
+    border: 2px solid var(--secondary-color);
     position: relative;
     overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-secondary::before {
@@ -263,19 +285,24 @@ p {
     left: 0;
     width: 0;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    transition: width 0.3s;
+    background: var(--primary-color);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: -1;
 }
 
 .btn-secondary:hover {
     color: white;
-    transform: translateY(-3px);
-    border-color: transparent;
+    transform: translateY(-3px) scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 25px rgba(90, 62, 43, 0.4);
 }
 
 .btn-secondary:hover::before {
     width: 100%;
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px) scale(1.02);
 }
 
 /* Header Overlapping Effect */
@@ -1656,25 +1683,6 @@ p {
     margin-bottom: 1rem;
 }
 
-/* Service Features */
-.service-features {
-    list-style: none;
-    margin: 1rem 0;
-}
-
-.service-features li {
-    padding: 0.5rem 0;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.service-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-}
 
 /* Story Timeline */
 .story-timeline {
@@ -2067,6 +2075,29 @@ p {
 }
 
 /* Enhanced text visibility for all elements */
+
+/* Service Features */
+.service-features {
+    list-style: disc;          /* enable bullets */
+    margin: 1rem 0;
+    padding-left: 1.5rem;      /* proper bullet spacing */
+}
+
+.service-features li {
+    padding: 0.5rem 0;
+    position: static;          /* reset positioning */
+    line-height: 1.6;
+    display: list-item;        /* ensure proper list item display */
+    text-align: left;          /* ensure left alignment */
+    vertical-align: baseline;  /* align text to baseline */
+}
+
+/* REMOVE tick icon completely */
+.service-features li::before {
+    content: none;
+}
+
+/* Enhanced text visibility for all elements */
 .card-text,
 .service-features li,
 .team-bio,
@@ -2075,6 +2106,7 @@ p {
     font-weight: 400;
     line-height: 1.6;
 }
+
 
 /* Map Container */
 .map-container {
