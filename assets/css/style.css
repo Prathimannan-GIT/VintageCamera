@@ -86,10 +86,11 @@ p {
 }
 
 .header-content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     height: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
@@ -107,7 +108,8 @@ p {
     z-index: 10;
     transition: transform 0.3s;
     flex-shrink: 0;
-    margin-right: 1rem;
+    grid-column: 1;
+    justify-self: start;
 }
 
 .logo:hover {
@@ -121,6 +123,11 @@ p {
     object-fit: contain;
 }
 
+.header nav {
+    grid-column: 2;
+    justify-self: center;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -128,9 +135,7 @@ p {
     position: relative;
     z-index: 5;
     justify-content: center;
-    flex: 1;
     align-items: center;
-    margin: 0 2rem;
 }
 
 @media (max-width: 1200px) {
@@ -204,7 +209,8 @@ p {
     gap: 1rem;
     align-items: center;
     flex-shrink: 0;
-    margin-left: auto;
+    grid-column: 3;
+    justify-self: end;
 }
 
 .header-actions .btn {
@@ -1381,6 +1387,8 @@ p {
 
     .header-content {
         padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
     }
 
     .nav-menu {
@@ -2078,18 +2086,24 @@ p {
 
 /* Service Features */
 .service-features {
-    list-style: disc;          /* enable bullets */
+    list-style: disc;
+    /* enable bullets */
     margin: 1rem 0;
-    padding-left: 1.5rem;      /* proper bullet spacing */
+    padding-left: 1.5rem;
+    /* proper bullet spacing */
 }
 
 .service-features li {
     padding: 0.5rem 0;
-    position: static;          /* reset positioning */
+    position: static;
+    /* reset positioning */
     line-height: 1.6;
-    display: list-item;        /* ensure proper list item display */
-    text-align: left;          /* ensure left alignment */
-    vertical-align: baseline;  /* align text to baseline */
+    display: list-item;
+    /* ensure proper list item display */
+    text-align: left;
+    /* ensure left alignment */
+    vertical-align: baseline;
+    /* align text to baseline */
 }
 
 /* REMOVE tick icon completely */
