@@ -563,15 +563,17 @@ p {
     height: 100%;
 }
 
+.bento-card .card-title,
+.bento-card .card-text {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
 .bento-card:hover .card-content {
     background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 60%, transparent 100%);
     padding-bottom: 3rem;
 }
 
-.bento-card .card-title,
-.bento-card .card-text {
-    color: white;
-}
 
 /* Minimal Grid Layout (Sleek & Clean) */
 .minimal-grid {
@@ -1189,7 +1191,7 @@ p {
     text-align: center;
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #999;
+    color: #ccc;
     position: relative;
     z-index: 2;
 }
@@ -1197,6 +1199,7 @@ p {
 .footer-bottom p {
     margin: 0;
     font-size: 0.9rem;
+    color: #ccc !important;
 }
 
 /* Newsletter Section in Footer */
@@ -1904,11 +1907,17 @@ p {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
     color: white;
     padding: 1.5rem;
     transform: translateY(100%);
     transition: transform 0.3s;
+}
+
+.gallery-overlay h3,
+.gallery-overlay p {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -2938,6 +2947,37 @@ p {
 /* Accent Background */
 .bg-accent {
     background-color: #F0E6DC;
+}
+
+/* Light Mode Support */
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #F6F2ED;
+        --card-background: #FFFFFF;
+        --text-primary: #2B2B2B;
+        --text-secondary: #6B6B6B;
+        --border-color: #E5D5C7;
+        --footer-background: #1E1A16;
+    }
+    
+    /* Ensure footer text is visible in light mode */
+    .footer-bottom p {
+        color: #ccc !important;
+    }
+    
+    /* Ensure bento card text is visible in light mode */
+    .bento-card .card-title,
+    .bento-card .card-text {
+        color: white !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
+    
+    /* Ensure gallery overlay text is visible in light mode */
+    .gallery-overlay h3,
+    .gallery-overlay p {
+        color: white !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    }
 }
 
 /* Dark Mode Support */
